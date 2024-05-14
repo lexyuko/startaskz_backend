@@ -1,0 +1,14 @@
+C:\Users\User\Documents\coding\task-management-system-java-react\backend\src\main\java\com\michael\taskmanagementsystem\service\UsersManagementService.java
+C:\Users\User\Documents\coding\task-management-system-java-react\backend\src\main\java\com\michael\taskmanagementsystem\service\OurUserDetailsService.java
+C:\Users\User\Documents\coding\task-management-system-java-react\backend\src\main\java\com\michael\taskmanagementsystem\repository\UsersRepo.java
+C:\Users\User\Documents\coding\task-management-system-java-react\backend\src\main\java\com\michael\taskmanagementsystem\entity\OurUsers.java
+C:\Users\User\Documents\coding\task-management-system-java-react\backend\src\main\java\com\michael\taskmanagementsystem\config\JWTAuthFilter.java
+C:\Users\User\Documents\coding\task-management-system-java-react\backend\src\main\java\com\michael\taskmanagementsystem\service\JWTUtils.java
+C:\Users\User\Documents\coding\task-management-system-java-react\backend\src\main\java\com\michael\taskmanagementsystem\controller\UserManagementController.java
+C:\Users\User\Documents\coding\task-management-system-java-react\backend\src\main\java\com\michael\taskmanagementsystem\service\TaskService.java
+C:\Users\User\Documents\coding\task-management-system-java-react\backend\src\main\java\com\michael\taskmanagementsystem\dto\ReqRes.java
+C:\Users\User\Documents\coding\task-management-system-java-react\backend\src\main\java\com\michael\taskmanagementsystem\repository\TaskRepo.java
+C:\Users\User\Documents\coding\task-management-system-java-react\backend\src\main\java\com\michael\taskmanagementsystem\config\SecurityConfig.java
+C:\Users\User\Documents\coding\task-management-system-java-react\backend\src\main\java\com\michael\taskmanagementsystem\entity\Task.java
+C:\Users\User\Documents\coding\task-management-system-java-react\backend\src\main\java\com\michael\taskmanagementsystem\TaskmanagementsystemApplication.java
+C:\Users\User\Documents\coding\task-management-system-java-react\backend\src\main\java\com\michael\taskmanagementsystem\config\CorsConfig.java
