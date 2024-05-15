@@ -48,7 +48,7 @@ public class UserManagementController {
 
     }
 
-    @PutMapping("/admin/update/{userId}")
+    @PutMapping("/user /update/{userId}")
     public ResponseEntity<ReqRes> updateUser(@PathVariable Integer userId, @RequestBody OurUsers reqres){
         return ResponseEntity.ok(usersManagementService.updateUser(userId, reqres));
     }
