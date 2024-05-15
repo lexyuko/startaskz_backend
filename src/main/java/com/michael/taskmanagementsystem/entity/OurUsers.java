@@ -12,7 +12,10 @@ import java.util.List;
 import java.sql.Date;
 
 @Entity
-@Table(name = "ourusers")
+@Table(uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"email"})
+})
+
 @Data
 public class OurUsers implements UserDetails {
 
