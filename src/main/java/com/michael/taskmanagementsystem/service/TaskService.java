@@ -1,5 +1,4 @@
 package com.michael.taskmanagementsystem.service;
-
 import com.michael.taskmanagementsystem.entity.Task;
 import com.michael.taskmanagementsystem.repository.TaskRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +15,10 @@ public class TaskService {
     public Task createTask(Task task){
         return taskRepo.save(task);
     }
-    public Task updateTask(Task task, Long userId, String taskName){
+    public Task updateTask(Task task, Integer userId, Integer taskId){
         List<Task> listOfTask = taskRepo.findByUserId(userId);
         for(Task specificTask: listOfTask){
-            if(specificTask.getTaskName().equals(taskName)){
+            if(specificTask.getId()==taskId){
                 specificTask.setTaskName(task.getTaskName());
                 specificTask.setTaskDescription(task.getTaskDescription());
                 specificTask.setCategory(task.getCategory());
@@ -31,28 +30,28 @@ public class TaskService {
         return null;
     }
 
-    public List<Task> getTasksByUserId(Long userId){
+    public List<Task> getTasksByUserId(Integer userId){
         return taskRepo.findByUserId(userId);
     }
 
 
-    public Task getSingleTask(Long userId, String taskName) {
+    public Task getSingleTask(Integer userId, Integer taskId) {
         List<Task> taskList = getTasksByUserId(userId);
         for (Task task : taskList) {
-            if (task.getTaskName().equals(taskName)) {
+            if (task.getId()==taskId) {
                 return task;
             }
         }
         return null;
     }
 
-    public String deleteTask(Long userId, String taskName){
+    public String deleteTask(Integer userId, Integer taskId){
         List<Task> taskList = getTasksByUserId(userId);
         for (Task task: taskList){
-            if(task.getTaskName().equals(taskName)){
-                taskRepo.deleteByTaskName(task.getTaskName());
+            if(task.getId()==(taskId)){
+                taskRepo.deleteById(task.getId());
             }
         }
-        return "task "+ taskName+" deleted successfully";
+        return "task "+ taskId+" deleted successfully";
     }
 }

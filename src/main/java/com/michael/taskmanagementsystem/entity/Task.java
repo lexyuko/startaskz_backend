@@ -1,5 +1,5 @@
 package com.michael.taskmanagementsystem.entity;
-
+//
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,14 +18,14 @@ import java.time.LocalDateTime;
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
     private String taskName;
     private String taskDescription;
     private Date startDate, endDate;
     private LocalDateTime startTime, endTime;
     private TaskStatus status;
     private TaskCategory category;
-    private Long userId;
+    private Integer userId;
 }
 enum TaskStatus{
     PENDING,COMPLETED

@@ -78,10 +78,14 @@
 			<artifactId>spring-security-oauth2</artifactId>
 			<version>2.5.2.RELEASE</version>
 		</dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.michael</groupId>-->
+<!--            <artifactId>taskmanagementsystem</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--        </dependency>-->
 
 
-
-	</dependencies>
+    </dependencies>
 
 	<build>
 		<plugins>

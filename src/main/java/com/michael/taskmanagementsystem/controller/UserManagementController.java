@@ -70,29 +70,29 @@ public class UserManagementController {
 //   ----------- End points for Tasks
 
     @PostMapping("/user/create-task/{userId}")
-    public ResponseEntity<Task> createTask(@PathVariable Long userId, @RequestBody Task task){
+    public ResponseEntity<Task> createTask(@PathVariable Integer userId, @RequestBody Task task){
         return ResponseEntity.ok(taskService.createTask(task));
     }
 
-    @PutMapping("/user/update-task/{userId}/{taskName}")
-    public ResponseEntity<Task> updateTask(@PathVariable Long userId, @PathVariable String taskName, @RequestBody Task task){
-        return ResponseEntity.ok(taskService.updateTask(task,userId,taskName));
+    @PutMapping("/user/update-task/{userId}/{taskId}")
+    public ResponseEntity<Task> updateTask(@PathVariable Integer userId, @PathVariable Integer taskId, @RequestBody Task task){
+        return ResponseEntity.ok(taskService.updateTask(task,userId,taskId));
     }
 
     @GetMapping("/user/get-tasks/{userId}")
-    public ResponseEntity<List<Task>> getTasksByUserId(@PathVariable Long userId){
+    public ResponseEntity<List<Task>> getTasksByUserId(@PathVariable Integer userId){
         return ResponseEntity.ok(taskService.getTasksByUserId(userId));
     }
 
-    @GetMapping("/user/get-tasks/{userId}/{taskName}")
-    public ResponseEntity<Task> getSingleTaskByUserId(@PathVariable Long userId, @PathVariable String taskName){
-        return ResponseEntity.ok(taskService.getSingleTask(userId,taskName));
+    @GetMapping("/user/get-tasks/{userId}/{taskId}")
+    public ResponseEntity<Task> getSingleTaskByUserId(@PathVariable Integer userId, @PathVariable Integer taskId){
+        return ResponseEntity.ok(taskService.getSingleTask(userId,taskId));
     }
 
-    @GetMapping("/user/delete-task/{userId}/{taskName}")
-    public ResponseEntity<String> deleteTask(@PathVariable Long userId, @PathVariable String taskName){
-        taskService.deleteTask(userId,taskName);
-        return ResponseEntity.ok("task "+taskName+", deleted!");
+    @GetMapping("/user/delete-task/{userId}/{taskId}")
+    public ResponseEntity<String> deleteTask(@PathVariable Integer userId, @PathVariable Integer taskId){
+        taskService.deleteTask(userId,taskId);
+        return ResponseEntity.ok("task "+taskId+", deleted!");
     }
 
 
