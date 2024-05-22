@@ -28,12 +28,4 @@ public class ReqRes {
     private OurUsers ourUsers;
     private Integer userId;
     private List<OurUsers> ourUsersList;
-//    private String taskName;
-//    private String taskDescription;
-//    private Date startDate, endDate;
-//    private LocalDateTime startTime, endTime;
-//    private String TaskStatus;
-//    private String TaskCategory;
-//    private Task task;
-
 }

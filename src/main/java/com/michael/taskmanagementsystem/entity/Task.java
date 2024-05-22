@@ -27,9 +27,3 @@ public class Task {
     private String  category;
     private Integer userId;
 }
-//enum TaskStatus{
-//    PENDING,COMPLETED
-//}
-//enum TaskCategory{
-//    WORK,PERSONAL,STUDY,UNCATEGORIZED
-//}

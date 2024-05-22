@@ -68,6 +68,10 @@ public class UsersManagementService {
             response.setExpirationTime("24Hrs");
             response.setMessage("Successfully Logged In");
             response.setUserId(user.getId());
+            response.getEmail();
+            response.getFirstName();
+            response.getLastName();
+            response.getDateOfBirth();
 
 
         }catch (Exception e){

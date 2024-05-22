@@ -10,5 +10,4 @@ import java.util.List;
 @Repository
 public interface TaskRepo extends JpaRepository<Task, Integer> {
     public List<Task> findByUserId(Integer userId);
-//    public void deleteByTaskName(String taskName);
 }
