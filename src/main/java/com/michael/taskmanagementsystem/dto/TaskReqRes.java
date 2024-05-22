@@ -18,8 +18,8 @@ public class TaskReqRes {
     private String taskDescription;
     private Date startDate, endDate;
     private LocalDateTime startTime, endTime;
-    private String TaskStatus;
-    private String TaskCategory;
+    private String status;
+    private String category;
     private Integer userId;
     private Task task;
 }

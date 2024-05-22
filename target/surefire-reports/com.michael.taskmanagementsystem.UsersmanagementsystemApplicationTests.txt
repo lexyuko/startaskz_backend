@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.michael.taskmanagementsystem.UsersmanagementsystemApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 40.98 s -- in com.michael.taskmanagementsystem.UsersmanagementsystemApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 78.56 s -- in com.michael.taskmanagementsystem.UsersmanagementsystemApplicationTests
