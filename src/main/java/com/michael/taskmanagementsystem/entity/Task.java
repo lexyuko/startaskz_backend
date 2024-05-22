@@ -23,13 +23,13 @@ public class Task {
     private String taskDescription;
     private Date startDate, endDate;
     private LocalDateTime startTime, endTime;
-    private TaskStatus status;
-    private TaskCategory category;
+    private String  status;
+    private String  category;
     private Integer userId;
 }
-enum TaskStatus{
-    PENDING,COMPLETED
-}
-enum TaskCategory{
-    WORK,PERSONAL,STUDY,UNCATEGORIZED
-}
+//enum TaskStatus{
+//    PENDING,COMPLETED
+//}
+//enum TaskCategory{
+//    WORK,PERSONAL,STUDY,UNCATEGORIZED
+//}

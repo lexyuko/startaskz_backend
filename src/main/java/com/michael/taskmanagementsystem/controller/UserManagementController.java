@@ -1,8 +1,8 @@
 package com.michael.taskmanagementsystem.controller;
 
 import com.michael.taskmanagementsystem.dto.ReqRes;
+import com.michael.taskmanagementsystem.dto.TaskReqRes;
 import com.michael.taskmanagementsystem.entity.OurUsers;
-import com.michael.taskmanagementsystem.entity.Task;
 import com.michael.taskmanagementsystem.service.TaskService;
 import com.michael.taskmanagementsystem.service.UsersManagementService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class UserManagementController {
     private UsersManagementService usersManagementService;
 
     @Autowired
-    TaskService taskService;
+    private TaskService taskService;
 
     @PostMapping("/auth/register")
     public ResponseEntity<ReqRes> register(@RequestBody ReqRes reg) {
@@ -69,32 +69,32 @@ public class UserManagementController {
 
 //   ----------- End points for Tasks
 
-    @PostMapping("/user/create-task/{userId}")
-    public ResponseEntity<ReqRes> createTask(@PathVariable Integer userId, @RequestBody ReqRes task) {
-        return ResponseEntity.ok(taskService.createTask(task));
-    }
-
-    @PutMapping("/user/update-task/{userId}/{taskId}")
-    public ResponseEntity<Task> updateTask(@PathVariable Integer userId, @PathVariable Integer taskId, @RequestBody Task task) {
-        return ResponseEntity.ok(taskService.updateTask(task, userId, taskId));
-    }
-
-    @GetMapping("/user/get-tasks/{userId}")
-    public ResponseEntity<List<Task>> getTasksByUserId(@PathVariable Integer userId) {
-        return ResponseEntity.ok(taskService.getTasksByUserId(userId));
-    }
-
-    @GetMapping("/user/get-tasks/{userId}/{taskId}")
-    public ResponseEntity<Task> getSingleTaskByUserId(@PathVariable Integer userId, @PathVariable Integer taskId) {
-        return ResponseEntity.ok(taskService.getSingleTask(userId, taskId));
-    }
-
-    @GetMapping("/user/delete-task/{userId}/{taskId}")
-    public ResponseEntity<String> deleteTask(@PathVariable Integer userId, @PathVariable Integer taskId) {
-        taskService.deleteTask(userId, taskId);
-        return ResponseEntity.ok("task " + taskId + ", deleted!");
-    }
-}
+//    @PostMapping("/user/create-task/{userId}")
+//    public ResponseEntity<ReqRes> createTask(@PathVariable Integer userId, @RequestBody ReqRes task) {
+//        return ResponseEntity.ok(taskService.createTask(task));
+//    }
+//
+//    @PutMapping("/user/update-task/{userId}/{taskId}")
+//    public ResponseEntity<Task> updateTask(@PathVariable Integer userId, @PathVariable Integer taskId, @RequestBody Task task) {
+//        return ResponseEntity.ok(taskService.updateTask(task, userId, taskId));
+//    }
+//
+//    @GetMapping("/user/get-tasks/{userId}")
+//    public ResponseEntity<List<Task>> getTasksByUserId(@PathVariable Integer userId) {
+//        return ResponseEntity.ok(taskService.getTasksByUserId(userId));
+//    }
+//
+//    @GetMapping("/user/get-tasks/{userId}/{taskId}")
+//    public ResponseEntity<Task> getSingleTaskByUserId(@PathVariable Integer userId, @PathVariable Integer taskId) {
+//        return ResponseEntity.ok(taskService.getSingleTask(userId, taskId));
+//    }
+//
+//    @GetMapping("/user/delete-task/{userId}/{taskId}")
+//    public ResponseEntity<String> deleteTask(@PathVariable Integer userId, @PathVariable Integer taskId) {
+//        taskService.deleteTask(userId, taskId);
+//        return ResponseEntity.ok("task " + taskId + ", deleted!");
+//    }
+//}
 
 
 //    @PostMapping("/create-task/{userId}")
@@ -145,3 +145,30 @@ public class UserManagementController {
 //
 //
 //}
+
+
+    @PostMapping("/create-task/{userId}")
+    public ResponseEntity<TaskReqRes> createTask(@PathVariable Integer userId, @RequestBody TaskReqRes taskReqRes) {
+        return ResponseEntity.ok(taskService.createTask(userId, taskReqRes));
+    }
+
+    @PutMapping("/update-task/{userId}/{taskId}")
+    public ResponseEntity<TaskReqRes> updateTask(@PathVariable Integer userId, @PathVariable Integer taskId, @RequestBody TaskReqRes taskReqRes) {
+        return ResponseEntity.ok(taskService.updateTask(userId, taskId, taskReqRes));
+    }
+
+    @GetMapping("/get-tasks/{userId}")
+    public ResponseEntity<List<TaskReqRes>> getTasksByUserId(@PathVariable Integer userId) {
+        return ResponseEntity.ok(taskService.getTasksByUserId(userId));
+    }
+
+    @GetMapping("/get-tasks/{userId}/{taskId}")
+    public ResponseEntity<TaskReqRes> getSingleTaskByUserId(@PathVariable Integer userId, @PathVariable Integer taskId) {
+        return ResponseEntity.ok(taskService.getSingleTask(userId, taskId));
+    }
+
+    @DeleteMapping("/delete-task/{userId}/{taskId}")
+    public ResponseEntity<String> deleteTask(@PathVariable Integer userId, @PathVariable Integer taskId) {
+        return ResponseEntity.ok(taskService.deleteTask(userId, taskId));
+    }
+}

@@ -4,7 +4,6 @@ com\michael\taskmanagementsystem\service\TaskService.class
 com\michael\taskmanagementsystem\TaskmanagementsystemApplication.class
 com\michael\taskmanagementsystem\config\JWTAuthFilter.class
 com\michael\taskmanagementsystem\service\OurUserDetailsService.class
-com\michael\taskmanagementsystem\entity\TaskCategory.class
 com\michael\taskmanagementsystem\service\UsersManagementService.class
 com\michael\taskmanagementsystem\dto\TaskReqRes.class
 com\michael\taskmanagementsystem\controller\UserManagementController.class
@@ -13,6 +12,5 @@ com\michael\taskmanagementsystem\config\CorsConfig.class
 com\michael\taskmanagementsystem\repository\TaskRepo.class
 com\michael\taskmanagementsystem\config\SecurityConfig.class
 com\michael\taskmanagementsystem\repository\UsersRepo.class
-com\michael\taskmanagementsystem\entity\TaskStatus.class
 com\michael\taskmanagementsystem\entity\Task.class
 com\michael\taskmanagementsystem\service\JWTUtils.class
