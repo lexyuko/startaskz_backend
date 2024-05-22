@@ -3,9 +3,11 @@ package com.michael.taskmanagementsystem.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.michael.taskmanagementsystem.entity.OurUsers;
+import com.michael.taskmanagementsystem.entity.Task;
 import lombok.Data;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -28,5 +30,12 @@ public class ReqRes {
     private OurUsers ourUsers;
     private Integer userId;
     private List<OurUsers> ourUsersList;
+    private String taskName;
+    private String taskDescription;
+    private Date startDate, endDate;
+    private LocalDateTime startTime, endTime;
+    private String TaskStatus;
+    private String TaskCategory;
+    private Task task;
 
 }
