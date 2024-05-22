@@ -69,7 +69,7 @@ public class UsersManagementService {
             response.setMessage("Successfully Logged In");
             response.setUserId(user.getId());
             response.setEmail(user.getEmail());
-            response.setFirstName((user.getFirstName()));
+            response.setFirstName(user.getFirstName());
             response.setLastName(user.getLastName());
             response.setDateOfBirth(user.getDateOfBirth());
 
