@@ -6,6 +6,7 @@ com\michael\taskmanagementsystem\config\JWTAuthFilter.class
 com\michael\taskmanagementsystem\service\OurUserDetailsService.class
 com\michael\taskmanagementsystem\entity\TaskCategory.class
 com\michael\taskmanagementsystem\service\UsersManagementService.class
+com\michael\taskmanagementsystem\dto\TaskReqRes.class
 com\michael\taskmanagementsystem\controller\UserManagementController.class
 com\michael\taskmanagementsystem\entity\OurUsers.class
 com\michael\taskmanagementsystem\config\CorsConfig.class
