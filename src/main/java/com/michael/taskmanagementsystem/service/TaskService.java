@@ -23,8 +23,8 @@ public class TaskService {
         task.setEndDate(taskReqRes.getEndDate());
         task.setStartTime(taskReqRes.getStartTime());
         task.setEndTime(taskReqRes.getEndTime());
-        task.setStatus(taskReqRes.getStatus());
-        task.setCategory(taskReqRes.getCategory());
+        task.setTaskStatus(taskReqRes.getTaskStatus());
+        task.setTaskCategory(taskReqRes.getTaskCategory());
         Task savedTask = taskRepo.save(task);
         taskReqRes.setId(savedTask.getId());
         return taskReqRes;
@@ -40,8 +40,8 @@ public class TaskService {
             task.setEndDate(taskReqRes.getEndDate());
             task.setStartTime(taskReqRes.getStartTime());
             task.setEndTime(taskReqRes.getEndTime());
-            task.setStatus(taskReqRes.getStatus());
-            task.setCategory(taskReqRes.getCategory());
+            task.setTaskStatus(taskReqRes.getTaskStatus());
+            task.setTaskCategory(taskReqRes.getTaskCategory());
             taskRepo.save(task);
             taskReqRes.setId(task.getId());
         } else {
@@ -61,8 +61,8 @@ public class TaskService {
             taskReqRes.setEndDate(task.getEndDate());
             taskReqRes.setStartTime(task.getStartTime());
             taskReqRes.setEndTime(task.getEndTime());
-            taskReqRes.setStatus(task.getStatus());
-            taskReqRes.setCategory(task.getCategory());
+            taskReqRes.setTaskStatus(task.getTaskStatus());
+            taskReqRes.setTaskCategory(task.getTaskCategory());
             return taskReqRes;
         }).collect(Collectors.toList());
     }
@@ -79,8 +79,8 @@ public class TaskService {
             taskReqRes.setEndDate(task.getEndDate());
             taskReqRes.setStartTime(task.getStartTime());
             taskReqRes.setEndTime(task.getEndTime());
-            taskReqRes.setStatus(task.getStatus());
-            taskReqRes.setCategory(task.getCategory());
+            taskReqRes.setTaskStatus(task.getTaskStatus());
+            taskReqRes.setTaskCategory(task.getTaskCategory());
             return taskReqRes;
         } else {
             throw new RuntimeException("Unauthorized action");

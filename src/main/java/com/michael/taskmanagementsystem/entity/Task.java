@@ -1,9 +1,6 @@
 package com.michael.taskmanagementsystem.entity;
 //
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,11 +16,14 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Column(unique = true, nullable = false)
+
     private String taskName;
     private String taskDescription;
     private Date startDate, endDate;
     private LocalDateTime startTime, endTime;
-    private String  status;
-    private String  category;
+    private String  taskStatus;
+    private String  taskCategory;
     private Integer userId;
 }
