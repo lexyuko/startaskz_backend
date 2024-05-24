@@ -23,7 +23,7 @@ public class Task {
     private String taskDescription;
     private Date startDate, endDate;
     private LocalDateTime startTime, endTime;
-    private String  taskStatus;
-    private String  taskCategory;
+    private String  status;
+    private String  category;
     private Integer userId;
 }

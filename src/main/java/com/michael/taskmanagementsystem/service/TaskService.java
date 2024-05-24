@@ -23,8 +23,8 @@ public class TaskService {
         task.setEndDate(taskReqRes.getEndDate());
         task.setStartTime(taskReqRes.getStartTime());
         task.setEndTime(taskReqRes.getEndTime());
-        task.setTaskStatus(taskReqRes.getTaskStatus());
-        task.setTaskCategory(taskReqRes.getTaskCategory());
+        task.setStatus(taskReqRes.getStatus());
+        task.setCategory(taskReqRes.getCategory());
         Task savedTask = taskRepo.save(task);
         taskReqRes.setId(savedTask.getId());
         return taskReqRes;
@@ -40,8 +40,8 @@ public class TaskService {
             task.setEndDate(taskReqRes.getEndDate());
             task.setStartTime(taskReqRes.getStartTime());
             task.setEndTime(taskReqRes.getEndTime());
-            task.setTaskStatus(taskReqRes.getTaskStatus());
-            task.setTaskCategory(taskReqRes.getTaskCategory());
+            task.setStatus(taskReqRes.getStatus());
+            task.setCategory(taskReqRes.getCategory());
             taskRepo.save(task);
             taskReqRes.setId(task.getId());
         } else {
@@ -61,8 +61,8 @@ public class TaskService {
             taskReqRes.setEndDate(task.getEndDate());
             taskReqRes.setStartTime(task.getStartTime());
             taskReqRes.setEndTime(task.getEndTime());
-            taskReqRes.setTaskStatus(task.getTaskStatus());
-            taskReqRes.setTaskCategory(task.getTaskCategory());
+            taskReqRes.setStatus(task.getStatus());
+            taskReqRes.setCategory(task.getCategory());
             return taskReqRes;
         }).collect(Collectors.toList());
     }
@@ -79,8 +79,8 @@ public class TaskService {
             taskReqRes.setEndDate(task.getEndDate());
             taskReqRes.setStartTime(task.getStartTime());
             taskReqRes.setEndTime(task.getEndTime());
-            taskReqRes.setTaskStatus(task.getTaskStatus());
-            taskReqRes.setTaskCategory(task.getTaskCategory());
+            taskReqRes.setStatus(task.getStatus());
+            taskReqRes.setCategory(task.getCategory());
             return taskReqRes;
         } else {
             throw new RuntimeException("Unauthorized action");
