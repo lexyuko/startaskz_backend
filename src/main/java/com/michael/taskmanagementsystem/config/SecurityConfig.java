@@ -18,7 +18,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -27,26 +28,27 @@ public class SecurityConfig {
     private OurUserDetailsService ourUserDetailsService;
     @Autowired
     private JWTAuthFilter jwtAuthFilter;
-
-
+    @Autowired
+    private static final Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
         httpSecurity.csrf(AbstractHttpConfigurer::disable)
                 .cors(Customizer.withDefaults())
-                .authorizeHttpRequests(request-> request.requestMatchers("/auth/**", "/public/**").permitAll()
-                        .requestMatchers("/admin/**").hasAnyAuthority("ADMIN")
-                        .requestMatchers("/user/**").hasAnyAuthority("USER")
-                        .requestMatchers("/adminuser/**").hasAnyAuthority("ADMIN", "USER")
-                        .anyRequest().authenticated())
-//                .oauth2Client(auth2->{
-//
-//                })
-                .sessionManagement(manager->manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(request -> {
+                    logger.info("Configuring request matchers");
+                    request.requestMatchers("/auth/**", "/public/**").permitAll()
+                            .requestMatchers("/admin/**").hasAnyAuthority("ADMIN")
+                            .requestMatchers("/user/**").hasAnyAuthority("USER")
+                            .requestMatchers("/adminuser/**").hasAnyAuthority("ADMIN", "USER")
+                            .anyRequest().authenticated();
+                })
+                .sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider()).addFilterBefore(
                         jwtAuthFilter, UsernamePasswordAuthenticationFilter.class
                 );
         return httpSecurity.build();
     }
+
     @Bean
     public AuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
