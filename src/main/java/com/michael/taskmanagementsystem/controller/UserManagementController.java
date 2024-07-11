@@ -10,11 +10,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.List;
 
 @RestController
 public class UserManagementController {
+
+    private static final Logger logger = LoggerFactory.getLogger(UserManagementController.class);
     @Autowired
     private UsersManagementService usersManagementService;
 
@@ -38,27 +41,32 @@ public class UserManagementController {
 
     @GetMapping("/user/get-all-users")
     public ResponseEntity<ReqRes> getAllUsers() {
+        logger.info("Get all users request received");
         return ResponseEntity.ok(usersManagementService.getAllUsers());
-
     }
 
     @GetMapping("/user/get-user/{userId}")
     public ResponseEntity<ReqRes> getUSerByID(@PathVariable Integer userId) {
+        logger.info("Get all users request received");
         return ResponseEntity.ok(usersManagementService.getUsersById(userId));
 
     }
 
     @PutMapping("/user/update/{userId}")
     public ResponseEntity<ReqRes> updateUser(@PathVariable Integer userId, @RequestBody OurUsers reqres) {
+        logger.info("Get all users request received");
         return ResponseEntity.ok(usersManagementService.updateUser(userId, reqres));
+
     }
 
     @GetMapping("/user/get-profile")
     public ResponseEntity<ReqRes> getMyProfile() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String email = authentication.getName();
+        logger.info("Get all users request received");
         ReqRes response = usersManagementService.getMyInfo(email);
         return ResponseEntity.status(response.getStatusCode()).body(response);
+
     }
 
     @DeleteMapping("/user/delete/{userId}")
