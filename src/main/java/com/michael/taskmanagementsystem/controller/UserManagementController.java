@@ -39,27 +39,27 @@ public class UserManagementController {
         return ResponseEntity.ok(usersManagementService.refreshToken(req));
     }
 
-    @GetMapping("/user/get-all-users")
+    @GetMapping("/admin/get-all-users")
     public ResponseEntity<ReqRes> getAllUsers() {
         logger.info("Get all users request received");
         return ResponseEntity.ok(usersManagementService.getAllUsers());
     }
 
-    @GetMapping("/user/get-user/{userId}")
+    @GetMapping("/admin/get-user/{userId}")
     public ResponseEntity<ReqRes> getUSerByID(@PathVariable Integer userId) {
         logger.info("Get all users request received");
         return ResponseEntity.ok(usersManagementService.getUsersById(userId));
 
     }
 
-    @PutMapping("/user/update/{userId}")
+    @PutMapping("/adminuser/update/{userId}")
     public ResponseEntity<ReqRes> updateUser(@PathVariable Integer userId, @RequestBody OurUsers reqres) {
         logger.info("Get all users request received");
         return ResponseEntity.ok(usersManagementService.updateUser(userId, reqres));
 
     }
 
-    @GetMapping("/user/get-profile")
+    @GetMapping("/adminuser/get-profile")
     public ResponseEntity<ReqRes> getMyProfile() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String email = authentication.getName();
@@ -69,7 +69,7 @@ public class UserManagementController {
 
     }
 
-    @DeleteMapping("/user/delete/{userId}")
+    @DeleteMapping("/adminuser/delete/{userId}")
     public ResponseEntity<ReqRes> deleteUSer(@PathVariable Integer userId) {
         return ResponseEntity.ok(usersManagementService.deleteUser(userId));
     }
@@ -93,7 +93,7 @@ public class UserManagementController {
         return ResponseEntity.ok(taskService.getTasksByUserId(userId));
     }
 
-    @GetMapping("/user/get-tasks/{userId}/{taskId}")
+    @GetMapping("/user/get-task/{userId}/{taskId}")
     public ResponseEntity<TaskReqRes> getSingleTaskByUserId(@PathVariable Integer userId, @PathVariable Integer taskId) {
         return ResponseEntity.ok(taskService.getSingleTask(userId, taskId));
     }
